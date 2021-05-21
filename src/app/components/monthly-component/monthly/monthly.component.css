@@ -1,0 +1,23 @@
+.title{
+  color: rgb(73, 147, 150);
+  text-shadow:rgb(73, 147, 150) ;
+  text-align: center;
+  margin-bottom:15px;
+}
+.Activity-container{
+    height: 80vh;
+    overflow: scroll;
+    overflow-x:hidden;
+}
+.Activity-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.Activity-container {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+/* .addbutton{
+    margin-bottom: 2em;
+} */

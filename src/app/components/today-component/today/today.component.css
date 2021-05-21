@@ -1,0 +1,30 @@
+.title{
+    color: rgb(73, 147, 150);
+    text-shadow:rgb(73, 147, 150) ;
+    text-align: center;
+    margin-bottom:15px;
+}
+.list-item{
+    background-color: #4b4949de;
+    color:#fafafa;
+}
+.list-item:hover{
+   background-color: rgba(5, 11, 70, 0.521);
+   
+}
+
+.activity-list-container{
+    height: 80vh;
+    overflow: scroll;
+    overflow-x:hidden;
+}
+.activity-list-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.activity-list-container {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+  

@@ -1,0 +1,125 @@
+<div class="container">
+  <h3 class="title"> Weekly Activities </h3>
+  <div *ngIf='!addVar'>
+    <div class="Activity-container">
+      <div class="card mb-3 " *ngFor='let item of dailyActivity ; let i=index'>
+        <div class="card-header">
+          <div class='d-flex justify-content-between flex-row'>
+            <div>
+                <h1 class="fw-bold fs-3 ">{{item.title}}</h1>
+            </div>
+            <div >
+                
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="btn btn-primary "(click)='editActivity(i)'> 
+                      <span >Edit</span>
+                    </div>
+                        
+                  </div>
+                    <div class="col-md-6">
+                      <div class="btn btn-danger "(click)='deleteActivity(i)'>
+                          <span >Delete</span>
+                        </div>
+                      </div>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{item.description}}</h5>
+        </div>
+        <div class="card-footer text-muted">
+            <p class="fs-5">{{item.day}}</p>
+      
+        </div>
+                
+      </div>
+    </div>
+      <div class="d-flex justify-content-center  ">
+        <div class="btn btn-outline-info" (click)='AddActivity()'>Add</div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+    <div class="row" *ngIf='addVar && !editVar'>
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+      <div class="card bg-dark">
+               <div class="card-body">
+                <div class="form-group">
+                  <label for="exampleInputEmail1"  class="text-white mb-2">Title</label>
+                  <input type="text" class="form-control"  [(ngModel)]='title' id="exampleInputEmail1" aria-describedby="emailHelp">
+                  
+                </div>
+                <div class="form-group">
+                  <label for="exampleFormControlTextarea1" class="text-white mb-2">Description</label>
+                  <textarea class="form-control" id="exampleFormControlTextarea1"  [(ngModel)]='description'  rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="exampleFormControlSelect1" class="text-white mb-2"> Select day</label>
+                  <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]='day'>
+                    <option value="Sunday" >Sunday</option>
+                    <option value="Monday">Monday</option>
+                    <option value="Tuesday">Tuesday</option>
+                    <option value="thursday">thursday</option>
+                    <option value="Friday">Friday</option>
+                    <option value="saturday">saturday</option>
+                  </select>
+                </div>
+               </div>
+               
+               <div class="card-footer">
+                 <div class="btn btn-outline-info" (click)='saveAddedActivity()'>Add Activity</div>
+               </div>
+       </div>
+      </div>
+      <div class="col-md-3"></div>
+     </div>
+    
+     <div class="row" *ngIf='editVar'>
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+      <div class="card bg-dark">
+               <div class="card-body">
+                <div class="form-group">
+                  <label for="exampleInputEmail1"  class="text-white mb-2">Title</label>
+                  <input type="text" class="form-control"  [(ngModel)]='dailyActivity[index].title' id="exampleInputEmail1" aria-describedby="emailHelp">
+                  
+                </div>
+                <div class="form-group">
+                  <label for="exampleFormControlTextarea1" class="text-white mb-2">Description</label>
+                  <textarea class="form-control" id="exampleFormControlTextarea1"  [(ngModel)]='dailyActivity[index].description'  rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="exampleFormControlSelect1" class="text-white mb-2"> Select day</label>
+                  <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]='dailyActivity[index].day'>
+                    <option value="Sunday" >Sunday</option>
+                    <option value="Monday">Monday</option>
+                    <option value="Tuesday">Tuesday</option>
+                    <option value="thursday">thursday</option>
+                    <option value="Friday">Friday</option>
+                    <option value="saturday">saturday</option>
+                  </select>
+                </div>
+               </div>
+              
+               <div class="card-footer">
+                 <div class="btn btn-outline-info" (click)='saveEditedActivity()'>Submit</div>
+               </div>
+       </div>
+      </div>
+      <div class="col-md-3"></div>
+     </div>
+    
+</div>

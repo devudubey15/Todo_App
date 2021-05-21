@@ -1,0 +1,85 @@
+ <div class="container">
+    <h1 class="title"> Time table </h1>
+    <div *ngIf='!addVar'>
+    <table class="table table-dark table-striped table-hover">
+        <thead class="tablehead ">
+            <tr>
+                <th scope="col ">S.N</th>
+                <th scope="col">Action Plan</th>
+                <th scope="col">Time(start)</th>
+                <th scope="col" >Time(end)</th>
+                <th scope="col">
+                    <div class="d-flex justify-content-end me-5"> Action</div>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr class="tablebody" *ngFor='let item of timetable; let i=index'>
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{item.plan}}</td>
+                    <td>{{item.starttime}}</td>
+                    <td>{{item.endtime}}</td>
+                    <td>
+                        <div class="d-flex justify-content-end">
+                            <div class="d-flex">
+                                <div class="btn btn-outline-primary "(click)='editInTable(i)' >
+                                    <span >Edit</span>
+                                </div>
+                                <div class="btn btn-outline-danger ms-3 " (click)='deleteInTable(i)'>
+                                    <span >Delete</span>
+                                  </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                
+                </tbody>
+
+    </table>
+    <div class="d-flex justify-content-center mt-5 ">
+        <div class="btn btn-outline-info" (click)='addInTable()'>Add</div>
+    </div>
+</div>
+<div *ngIf='addVar && !editVar'>
+          
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1" class="text-white">Plan</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1"  [(ngModel)]='plan'  ></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1" class="text-white">starttime</label>
+      <input type='time' class="form-control" id="exampleFormControlTextarea1"  [(ngModel)]='starttime'>
+    </div>
+
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1" class="text-white">endtime</label>
+      <input type='time' class="form-control" id="exampleFormControlTextarea1"  [(ngModel)]='endtime'>
+    </div>
+    <div class="card-footer">
+      <div class="btn btn-outline-info" (click)='saveAddedActivity()'>Save</div>
+    </div>
+</div>
+
+<div *ngIf='editVar'>
+    
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1" class="text-white">Plan</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1"  [(ngModel)]='timetable[index].plan'  ></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1" class="text-white">starttime</label>
+    <input type='time' class="form-control" id="exampleFormControlTextarea1"  [(ngModel)]='timetable[index].starttime'>
+  </div>
+
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1" class="text-white">endtime</label>
+    <input type='time' class="form-control" id="exampleFormControlTextarea1"  [(ngModel)]='timetable[index].endtime'>
+  </div>
+  <div class="card-footer">
+    <div class="btn btn-outline-info" (click)='saveEditedActivity()'>Save</div>
+  </div>
+</div>
+
+ </div>

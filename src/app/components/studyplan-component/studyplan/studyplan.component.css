@@ -1,0 +1,27 @@
+.title{
+    color: rgb(73, 147, 150);
+    text-align: center;
+    margin-bottom:15px;
+}
+.table{
+    border: cornsilk;
+    border-radius: 2em;
+}
+.tablehead{
+    font-size:20px;
+    height: 5em;
+    color: rgb(70, 90, 116);
+    background-color: rgb(56, 71, 100);
+
+}
+.tablebody{
+ padding: 5px;
+ height: 2em;
+ border:cornsilk;
+
+}
+
+.tablebody:hover{
+    border: dashed rgb(130, 142, 180);
+} 
+
